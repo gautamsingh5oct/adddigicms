@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface JPAOtp extends JpaRepository<Otp, Long>{
 
-	//Otp controll
+	//Otp controll access otp
 	@Query("select b from Otp b where b.msisdn=:msisdn and b.otp=:otp "
 			+ " and TIMESTAMPDIFF(MINUTE, b.createTime, NOW())<10 and b.send=:send")
 	Otp findOtpByMsisdnAndOtp(@Param("msisdn")String msisdn,
